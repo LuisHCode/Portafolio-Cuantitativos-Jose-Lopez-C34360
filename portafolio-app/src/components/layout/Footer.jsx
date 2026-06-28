@@ -23,7 +23,7 @@ const Footer = () => {
               Portafolio académico de análisis cuantitativo desarrollado como parte del curso de Métodos Cuantitativos en la Universidad de Costa Rica.
             </p>
             <a
-              href="/docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf"
+              href={`${import.meta.env.BASE_URL}docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf`}
               download
               className="btn-primary footer__download"
             >

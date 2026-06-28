@@ -104,7 +104,7 @@ const MethodPage = () => {
 
           {/* Download individual PDF */}
           <a
-            href={method.pdfFile}
+            href={`${import.meta.env.BASE_URL}${method.pdfFile.startsWith('/') ? method.pdfFile.substring(1) : method.pdfFile}`}
             download
             className="method-hero__download"
           >

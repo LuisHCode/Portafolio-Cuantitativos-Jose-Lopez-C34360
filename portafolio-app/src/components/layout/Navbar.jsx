@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* CTA */}
         <div className="navbar__actions">
           <a
-            href="/docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf"
+            href={`${import.meta.env.BASE_URL}docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf`}
             download
             className="navbar__download"
           >
