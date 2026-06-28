@@ -1074,13 +1074,23 @@ export const methodsData = [
         LCIR: 0,
         sigma: 0.249,
         Cp: 1.34,
-        Cpk: 1.24,
+        Cpk: 0.71,
       },
       steps: [
         {
-          title: 'Paso 1: Calcular Media y Rango por Subgrupo',
-          description: 'Para cada uno de los 10 subgrupos se calcula el promedio x̄ y el rango R (máximo - mínimo).',
-          detail: 'Subgrupo 1: x̄=(19.2+20.1+19.8+20.3+19.6)/5=19.80, R=20.3-19.2=1.10\nSubgrupo 2: x̄=20.00, R=0.90... y así para los 10 subgrupos.',
+          title: 'Paso 1: Calcular Promedio (x̄) y Rango (R) por Subgrupo',
+          description: 'Para cada uno de los 10 subgrupos (n=5 cajas), calculamos la media aritmética para medir la tendencia central y el rango (valor máximo menos valor mínimo) para medir la dispersión.',
+          detail: 'Cálculo Detallado:\n' +
+                  '• Subgrupo 1: x̄ = (19.2 + 20.1 + 19.8 + 20.3 + 19.6)/5 = 19.80 kg\n' +
+                  '  R = 20.3 (Máx) - 19.2 (Mín) = 1.10 kg\n' +
+                  '• Subgrupo 2: x̄ = (20.0 + 19.5 + 20.2 + 19.9 + 20.4)/5 = 20.00 kg\n' +
+                  '  R = 20.4 (Máx) - 19.5 (Mín) = 0.90 kg\n' +
+                  '• Subgrupo 3: x̄ = (19.7 + 20.0 + 19.4 + 20.1 + 19.8)/5 = 19.80 kg\n' +
+                  '  R = 20.1 (Máx) - 19.4 (Mín) = 0.70 kg\n' +
+                  '• Subgrupo 6 (Peso más alto): x̄ = (20.4 + 20.2 + 20.6 + 20.3 + 20.5)/5 = 20.40 kg\n' +
+                  '  R = 20.6 (Máx) - 20.2 (Mín) = 0.40 kg\n' +
+                  '• Subgrupo 10: x̄ = (19.8 + 20.0 + 19.7 + 19.9 + 20.1)/5 = 19.90 kg\n' +
+                  '  R = 20.1 (Máx) - 19.7 (Mín) = 0.40 kg',
           table: [
             ['Subgrupo', 'Valores de las Cajas (kg)', 'Promedio Subgrupo (x̄)', 'Rango Subgrupo (R)'],
             ['Subgrupo 1', '19.2, 20.1, 19.8, 20.3, 19.6', '19.80 kg', '1.10 kg'],
@@ -1096,19 +1106,27 @@ export const methodsData = [
           ]
         },
         {
-          title: 'Paso 2: Gran Media y Rango Promedio',
-          description: 'Se promedian todas las medias (x̄̄) y todos los rangos (R̄) de los 10 subgrupos.',
-          detail: 'x̄̄ = (19.80+20.00+19.80+20.20+19.72+20.40+20.00+19.70+20.20+19.90)/10 = 19.97 kg\nR̄ = (1.10+0.90+0.70+0.60+0.50+0.40+0.40+0.40+0.40+0.40)/10 = 0.58 kg',
+          title: 'Paso 2: Calcular la Gran Media (x̄̄) y el Rango Promedio (R̄)',
+          description: 'Promediamos los 10 valores de promedio de subgrupos y de rangos para establecer las Líneas Centrales (LC) de los gráficos.',
+          detail: 'Gran Media (Línea Central de Promedios):\n' +
+                  'x̄̄ = (19.80 + 20.00 + 19.80 + 20.20 + 19.72 + 20.40 + 20.00 + 19.70 + 20.20 + 19.90) / 10 = 19.97 kg\n\n' +
+                  'Rango Promedio (Línea Central de Rangos):\n' +
+                  'R̄ = (1.10 + 0.90 + 0.70 + 0.60 + 0.50 + 0.40 + 0.40 + 0.40 + 0.40 + 0.40) / 10 = 0.58 kg',
           table: [
-            ['Parámetro', 'Fórmula de Cálculo', 'Valor Promedio Calculado'],
+            ['Parámetro de Control', 'Fórmula de Cálculo', 'Valor Promedio Calculado'],
             ['Gran Media (x̄̄)', 'Suma de Medias / 10', '19.97 kg (Línea Central X̄)'],
             ['Rango Promedio (R̄)', 'Suma de Rangos / 10', '0.58 kg (Línea Central R)']
           ]
         },
         {
-          title: 'Paso 3: Calcular Límites de Control (n=5 → A₂=0.577, D₄=2.114, D₃=0)',
-          description: 'Se aplican las fórmulas con las constantes estadísticas para n=5.',
-          detail: 'LCS_x̄ = 19.97 + 0.577(0.58) = 19.97 + 0.335 = 20.305 kg\nLCI_x̄ = 19.97 − 0.335 = 19.635 kg\nLCS_R = 2.114(0.58) = 1.226 kg\nLCI_R = 0(0.58) = 0',
+          title: 'Paso 3: Determinar Límites de Control (Medias y Rangos)',
+          description: 'Calculamos los límites estadísticos de control utilizando las constantes para n=5 (donde A₂=0.577, D₄=2.114, D₃=0).',
+          detail: '1. Gráfica de Medias (X̄):\n' +
+                  'LCS_x̄ = x̄̄ + A₂ * R̄ = 19.97 + 0.577 * 0.58 = 20.305 kg\n' +
+                  'LCI_x̄ = x̄̄ - A₂ * R̄ = 19.97 - 0.577 * 0.58 = 19.635 kg\n\n' +
+                  '2. Gráfica de Rangos (R):\n' +
+                  'LCS_R = D₄ * R̄ = 2.114 * 0.58 = 1.226 kg\n' +
+                  'LCI_R = D₃ * R̄ = 0.000 * 0.58 = 0.000 kg',
           table: [
             ['Gráfica de Control', 'Límite Control Inferior (LCI)', 'Línea Central (LC)', 'Límite Control Superior (LCS)'],
             ['Medias (X̄)', '19.635 kg', '19.970 kg', '20.305 kg'],
@@ -1116,22 +1134,35 @@ export const methodsData = [
           ]
         },
         {
-          title: 'Paso 4: Graficar e Interpretar',
-          description: 'Se grafican los 10 puntos de medias y de rangos contra sus límites de control.',
-          detail: 'Todos los puntos de medias están entre 19.635 y 20.305 ✓\nTodos los rangos están por debajo de 1.226 ✓\nNo hay patrones de tendencias ni corridas fuera de control → PROCESO ESTABLE.'
+          title: 'Paso 4: Construir Gráfico y Evaluar Estabilidad del Proceso',
+          description: 'Graficamos cronológicamente los puntos y evaluamos si existen anomalías o desviaciones fuera de los límites calculados.',
+          detail: 'Evaluación Visual e Interpretación:\n' +
+                  '• Límites Medias X̄: Todas las medias de los subgrupos están entre 19.635 kg y 20.305 kg. Ningún punto sale de los límites.\n' +
+                  '• Límites Rangos R: Todos los rangos están por debajo del límite superior de 1.226 kg. La dispersión del proceso es aceptable.\n' +
+                  '• Reglas de Estabilidad: No hay rachas de 7 puntos consecutivos a un solo lado, ni tendencias claras de desgaste en herramientas.\n' +
+                  'Conclusión: El proceso está bajo Control Estadístico (estable).',
         },
         {
-          title: 'Paso 5: Índices de Capacidad',
-          description: 'Se calcula σ y los índices Cp y Cpk (LSE=20.5 kg, LIE=18.5 kg del cliente).',
-          detail: 'σ = R̄/d₂ = 0.58/2.326 = 0.249 kg\nCp = (20.5−18.5)/(6×0.249) = 2.0/1.494 = 1.34 (≥1.33 ✓ CAPAZ)\nCpk = mín[(20.5−19.97)/(3×0.249), (19.97−18.5)/(3×0.249)] = mín[0.710, 1.967] = 1.24\nInterpretación: El proceso ES capaz (Cp≥1.33) pero NO está perfectamente centrado (Cpk<Cp). Se recomienda ajustar la media hacia 19.5 kg.',
+          title: 'Paso 5: Analizar Índices de Capacidad (Cp y Cpk)',
+          description: 'Comparamos la variabilidad natural del proceso con los límites de especificación requeridos por el cliente (LIE=18.5 kg, LSE=20.5 kg).',
+          detail: 'Desviación estándar estimada (σ):\n' +
+                  'σ = R̄ / d₂ = 0.58 / 2.326 = 0.249 kg\n\n' +
+                  'Índice de Capacidad Potencial (Cp):\n' +
+                  'Cp = (LSE - LIE) / (6 * σ) = (20.5 - 18.5) / (6 * 0.249) = 1.34\n' +
+                  'Interpretación: Cp = 1.34 (≥ 1.33). El proceso es potencialmente capaz de cumplir.\n\n' +
+                  'Índice de Capacidad Real (Cpk):\n' +
+                  'Cpk = mín[ (LSE - x̄̄) / (3 * σ), (x̄̄ - LIE) / (3 * σ) ]\n' +
+                  'Cpk = mín[ (20.5 - 19.97) / (3 * 0.249), (19.97 - 18.5) / (3 * 0.249) ]\n' +
+                  'Cpk = mín[ 0.53 / 0.747, 1.47 / 0.747 ] = mín[ 0.71, 1.97 ] = 0.71\n' +
+                  'Interpretación: Como Cpk = 0.71 (< 1.00), el proceso no es capaz de cumplir en la práctica. Hay un grave problema de descentramiento hacia el límite superior; se producen cajas demasiado pesadas que regalan producto.',
           table: [
-            ['Indicador Capacidad', 'Fórmula Utilizada', 'Valor Cp/Cpk', 'Estándar Mínimo', 'Interpretación Gerencial'],
-            ['Índice Cp', '(LSE - LIE) / 6σ', '1.34', '≥ 1.33', 'El proceso es potencialmente CAPAZ ✓'],
-            ['Índice Cpk', 'mín[ (LSE-x̄̄)/3σ, (x̄̄-LIE)/3σ ]', '1.24', '≥ 1.33', 'Descentrado. Hay leve sesgo hacia el límite superior ⚠']
+            ['Indicador Capacidad', 'Fórmula de Cálculo', 'Valor Obtenido', 'Mínimo Aceptable', 'Estado Gerencial'],
+            ['Índice Cp', '(LSE - LIE) / 6σ', '1.34', '≥ 1.33', 'Potencialmente Capaz ✓'],
+            ['Índice Cpk', 'mín[ (LSE-x̄̄)/3σ, (x̄̄-LIE)/3σ ]', '0.71', '≥ 1.33', 'Fuera de Especificación / Descentrado ⚠']
           ]
         }
       ],
-      result: 'Proceso BAJO CONTROL. Cp=1.34 (capaz) | Cpk=1.24 (requiere centrado) → Ajustar media hacia el centro del intervalo cliente.',
+      result: 'Proceso estable pero DESCENTRADO. Cp=1.34 (capaz) | Cpk=0.71 (incapaz) → Ajustar la media del proceso hacia el centro nominal (19.5 kg).',
     }
   }
 ];

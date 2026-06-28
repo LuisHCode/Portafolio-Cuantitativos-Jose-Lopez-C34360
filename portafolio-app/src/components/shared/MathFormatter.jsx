@@ -38,21 +38,21 @@ export const renderMathAndText = (text, color) => {
         .replace(/x_j/g, 'x_j')
         .replace(/x_i/g, 'x_i')
         .replace(/x_k/g, 'x_k')
-        .replace(/x̄̄/g, '\\bar{\\bar{x}}')
-        .replace(/x̄/g, '\\bar{x}')
-        .replace(/R̄/g, '\\bar{R}')
         .replace(/LCS_x̄/g, 'LCS_{\\bar{x}}')
         .replace(/LCI_x̄/g, 'LCI_{\\bar{x}}')
         .replace(/LCS_R/g, 'LCS_R')
         .replace(/LCI_R/g, 'LCI_R')
-        .replace(/≤/g, '\\leq')
-        .replace(/≥/g, '\\geq')
-        .replace(/→/g, '\\rightarrow')
+        .replace(/x̄̄/g, '\\bar{\\bar{x}}')
+        .replace(/x̄/g, '\\bar{x}')
+        .replace(/R̄/g, '\\bar{R}')
+        .replace(/≤/g, '\\leq ')
+        .replace(/≥/g, '\\geq ')
+        .replace(/→/g, '\\rightarrow ')
         .replace(/−/g, '-')
-        .replace(/×/g, '\\times')
-        .replace(/π/g, '\\pi')
-        .replace(/σ/g, '\\sigma')
-        .replace(/∞/g, '\\infty')
+        .replace(/×/g, '\\times ')
+        .replace(/π/g, '\\pi ')
+        .replace(/σ/g, '\\sigma ')
+        .replace(/∞/g, '\\infty ')
         .replace(/%/g, '\\%');
 
       return (
@@ -74,8 +74,8 @@ export const renderMathAndText = (text, color) => {
           .replace(/x̄̄/g, '\\bar{\\bar{x}}')
           .replace(/x̄/g, '\\bar{x}')
           .replace(/R̄/g, '\\bar{R}')
-          .replace(/π/g, '\\pi')
-          .replace(/σ/g, '\\sigma');
+          .replace(/π/g, '\\pi ')
+          .replace(/σ/g, '\\sigma ');
         return <LatexFormula key={wordIndex} formula={latex} display={false} color={color} />;
       }
       return word;
