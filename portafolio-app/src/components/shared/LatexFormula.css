@@ -1,0 +1,72 @@
+/* ===== LatexFormula Component Styles ===== */
+
+/* KaTeX global overrides – adapta el renderer al tema oscuro */
+.latex-formula {
+  --latex-color: var(--text-primary);
+  font-family: 'KaTeX_Main', 'Latin Modern', serif;
+}
+
+/* Block (display math) */
+.latex-formula--block {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+}
+
+.latex-formula--block .katex-display {
+  margin: 0 !important;
+  text-align: center;
+}
+
+/* Inline */
+.latex-formula--inline {
+  display: inline;
+}
+
+/* Colores del texto KaTeX adaptados al dark theme */
+.latex-formula .katex {
+  color: var(--latex-color, var(--text-primary));
+  font-size: 1.05em;
+}
+
+.latex-formula--block .katex {
+  font-size: 1.1em;
+}
+
+/* Fracciones, raíces y operadores heredan el color */
+.latex-formula .katex .mord,
+.latex-formula .katex .mop,
+.latex-formula .katex .mrel,
+.latex-formula .katex .mbin,
+.latex-formula .katex .mpunct,
+.latex-formula .katex .mopen,
+.latex-formula .katex .mclose,
+.latex-formula .katex .minner {
+  color: inherit;
+}
+
+/* Scrollbar webkit */
+.latex-formula--block::-webkit-scrollbar {
+  height: 4px;
+}
+.latex-formula--block::-webkit-scrollbar-track {
+  background: transparent;
+}
+.latex-formula--block::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+/* Error fallback */
+.latex-formula__error {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}

@@ -1,0 +1,229 @@
+.stepper {
+  --step-color: var(--neon-cyan);
+}
+
+/* Progress Bar */
+.stepper__progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-subtle);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.stepper__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--step-color), color-mix(in srgb, var(--step-color) 70%, white));
+  border-radius: 4px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px var(--step-color);
+}
+
+/* Dot Indicators */
+.stepper__indicators {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stepper__dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-family: var(--font-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+.stepper__dot:hover {
+  border-color: var(--step-color);
+  color: var(--step-color);
+}
+.stepper__dot.active {
+  border-color: var(--step-color);
+  background: color-mix(in srgb, var(--step-color) 15%, transparent);
+  color: var(--step-color);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--step-color) 40%, transparent);
+}
+.stepper__dot.completed {
+  border-color: var(--step-color);
+  background: var(--step-color);
+  color: #000;
+}
+
+/* Step Card */
+.stepper__card {
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.stepper__card-header {
+  margin-bottom: 1rem;
+}
+
+.stepper__step-badge {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--step-color);
+  background: color-mix(in srgb, var(--step-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--step-color) 30%, transparent);
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.stepper__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stepper__description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Detail block */
+.stepper__detail {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--step-color);
+}
+
+.stepper__detail-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--step-color);
+  margin-bottom: 0.6rem;
+}
+
+.stepper__detail-code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+/* Navigation */
+.stepper__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.stepper__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.stepper__nav-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--step-color) 10%, transparent);
+  border-color: color-mix(in srgb, var(--step-color) 40%, transparent);
+  color: var(--step-color);
+}
+.stepper__nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.stepper__nav-btn--next {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--step-color) 15%, transparent), transparent);
+  border-color: color-mix(in srgb, var(--step-color) 35%, transparent);
+  color: var(--step-color);
+}
+.stepper__nav-btn--next:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--step-color) 20%, transparent);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--step-color) 25%, transparent);
+}
+
+.stepper__counter {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Stepper Table Styles */
+.stepper__table-section {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stepper__table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.stepper__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.stepper__table th {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.stepper__table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stepper__table tr:hover td {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.stepper__table td.stepper__cell--highlight {
+  color: var(--cell-color);
+  background: color-mix(in srgb, var(--cell-color) 8%, transparent);
+  font-weight: 700;
+  border-radius: 2px;
+}

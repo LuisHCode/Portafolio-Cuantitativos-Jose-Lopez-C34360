@@ -1,0 +1,195 @@
+.fundamentals {
+  --mc: var(--neon-cyan);
+}
+
+/* Info Grid */
+.fundamentals__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.fundamentals__card {
+  padding: 1.75rem;
+}
+
+.fundamentals__card-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.fundamentals__card-title {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.fundamentals__card-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Sections */
+.fundamentals__section {
+  margin-bottom: 2.5rem;
+}
+
+.fundamentals__section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.fundamentals__section-icon {
+  font-size: 1.1rem;
+}
+
+/* Technical list */
+.fundamentals__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fundamentals__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--font-secondary);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.fundamentals__list-bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mc);
+  margin-top: 0.5rem;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--mc) 60%, transparent);
+}
+
+/* How it works text */
+.fundamentals__how-text {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Formulas */
+.fundamentals__formulas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formula-block {
+  --fc: var(--neon-cyan);
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--fc);
+  transition: var(--transition-fast);
+}
+.formula-block:hover {
+  border-color: color-mix(in srgb, var(--fc) 30%, transparent);
+  border-left-color: var(--fc);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.formula-block__name {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fc);
+  margin-bottom: 0.85rem;
+}
+
+.formula-block__latex {
+  margin-bottom: 0.85rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  /* KaTeX overrides dentro del bloque */
+  --latex-color: color-mix(in srgb, var(--fc) 85%, white);
+}
+
+/* Asegura scroll horizontal en fórmulas largas */
+.formula-block__latex .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+.formula-block__vars {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.formula-block__vars-label {
+  font-family: var(--font-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.formula-block__var {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+  flex-wrap: wrap;
+}
+
+/* Cápsula de símbolo con LaTeX inline */
+.formula-block__var-sym {
+  display: inline-flex;
+  align-items: center;
+  min-width: 40px;
+  padding: 2px 10px;
+  background: color-mix(in srgb, var(--fc) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--fc) 30%, transparent);
+  border-radius: 6px;
+  flex-shrink: 0;
+  /* Color inline de KaTeX */
+  --latex-color: var(--fc);
+}
+
+.formula-block__var-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .fundamentals__grid {
+    grid-template-columns: 1fr;
+  }
+}

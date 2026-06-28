@@ -1,0 +1,134 @@
+.footer {
+  position: relative;
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  overflow: hidden;
+}
+
+.footer__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  opacity: 0.4;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Brand */
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.footer__logo-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px var(--neon-cyan));
+}
+.footer__logo-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.footer__logo-sub {
+  font-size: 0.75rem;
+  color: var(--neon-cyan);
+  font-family: var(--font-secondary);
+}
+
+.footer__desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.footer__download {
+  font-size: 0.85rem;
+  padding: 0.6rem 1.25rem;
+}
+
+/* Links */
+.footer__links-title {
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  border-bottom: 1px solid transparent;
+}
+.footer__link:hover {
+  color: var(--method-color, var(--neon-cyan));
+}
+
+/* Info */
+.footer__info-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+.footer__info-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.footer__info-value {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Bottom */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.footer__copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.footer__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
