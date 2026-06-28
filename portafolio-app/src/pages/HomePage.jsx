@@ -39,7 +39,7 @@ const HeroSection = () => (
           Explorar Métodos
         </a>
         <a
-          href="/docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf"
+          href={`${import.meta.env.BASE_URL}docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf`}
           download
           className="btn-outline"
         >
@@ -131,7 +131,7 @@ const HomePage = () => {
               Descarga el documento PDF con todos los métodos, fórmulas y ejercicios resueltos en un solo archivo de referencia completo.
             </p>
             <a
-              href="/docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf"
+              href={`${import.meta.env.BASE_URL}docs/Portafolio_Cuantitativos Jose Luis Lopez.pdf`}
               download
               className="btn-primary"
             >
